@@ -337,11 +337,14 @@ a.white {
 	transition: all 0.2s;
 	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
 }
-
 @media only screen and (max-width: 600px) {
 	.form-control-input,
 	.form-control-select {
 		width: calc(100vw - 60px);
+	}
+
+	#main-title, #color-text {
+		font-size: 35px;
 	}
 }
 
