@@ -1,4 +1,4 @@
-/* Template: Tivo - SaaS App HTML Landing Page Template
+ Template: Tivo - SaaS App HTML Landing Page Template
    Author: Inovatik
    Created: Sep 2019
    Description: Master CSS file
@@ -35,6 +35,44 @@ Colors:
 - Headings text - black #333
 - Body text - dark gray #555
 ******************************************/
+
+
+
+/*
+ Custom CSS
+*/
+
+#test {
+}
+
+
+#app-icon {
+	width: 96px;
+}
+
+.work {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#color-text {
+    background: linear-gradient(
+    	95deg, 
+    	#31b7ff, #6385ff, #9153f8, #e468fb, #ff8450
+    );
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#lines-background {
+    width: 100%;
+    position: absolute;
+}
+
 
 
 /******************************/
@@ -241,10 +279,12 @@ a.white {
 .form-group {
 	position: relative;
 	margin-bottom: 1.25rem;
+	display: flex;
+    justify-content: center;
 }
 
 .form-group.has-error.has-danger {
-	margin-bottom: 0.625rem;
+	margin-bottom: 23px;
 }
 
 .form-group.has-error.has-danger .help-block.with-errors ul {
@@ -255,7 +295,7 @@ a.white {
 	position: absolute;
 	top: 0.87rem;
 	left: 1.25rem;
-	color: #555;
+	color: #454E57;
 	opacity: 1;
 	font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
 	cursor: text;
@@ -282,14 +322,17 @@ a.white {
 .form-control-input,
 .form-control-select {
 	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
-	width: 100%;
+	width: 420px;
 	padding-top: 1.0625rem;
 	padding-bottom: 0.0625rem;
 	padding-left: 1.25rem;
-	border: 1px solid #c4d8dc;
-	border-radius: 0.25rem;
-	background-color: #fff;
-	color: #555;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.08), inset 0px 2px 4px rgba(0, 0, 0, 0.4);
+	/*background-color: #fff;*/
+	background: linear-gradient(180deg, #14171A 0%, #1E2225 100%);
+
+	color: #bbb;
 	font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;
 	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
@@ -351,14 +394,14 @@ select::-ms-expand {
 .form-control-input:focus,
 .form-control-select:focus,
 .form-control-textarea:focus {
-	border: 1px solid #a1a1a1;
+	border: 1px solid #333;
 	outline: none; /* Removes blue border on focus */
 }
 
 .form-control-input:hover,
 .form-control-select:hover,
 .form-control-textarea:hover {
-	border: 1px solid #a1a1a1;
+	border: 1px solid #333;
 }
 
 .checkbox {
@@ -379,20 +422,22 @@ input[type='checkbox'] {
 
 .form-control-submit-button {
 	display: inline-block;
-	width: 100%;
+	width: 179px;
 	height: 3.125rem;
-	border: 1px solid #f7565d;
-	border-radius: 1.5rem;
-	background-color: #f7565d;
+	border: none;
+	border-radius: 8px;
+	/*background-color: #f7565d;*/
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	cursor: pointer;
 	transition: all 0.2s;
+	background: linear-gradient(180deg, #12B0F8 0%, #0062F4 100%), linear-gradient(180deg, #5FC7FF 0%, #2F7FFA 52.59%, #3774FF 52.6%, #3C67FF 60.42%, #6E3CFF 100%);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 8px 12px rgba(0, 0, 0, 0.25), 0px 16px 20px rgba(0, 0, 0, 0.2);
 }
 
 .form-control-submit-button:hover {
 	background-color: transparent;
-	color: #3366ed;
+	color: #ccc;
 }
 
 /* Form Success And Error Message Formatting */
@@ -782,7 +827,8 @@ input[type='checkbox'] {
 /*    04. Header     */
 /*********************/
 .header {
-	background-color: #3366ed;
+	height: 100%;
+	background: linear-gradient(167deg, #2a2f33 5.85%, #1e2225 66.83%);
 }
 
 .header .header-content {
@@ -1460,11 +1506,11 @@ input[type='checkbox'] {
 .copyright .p-small {
 	padding-top: 1.375rem;
 	/*border-top: 1px solid #718ad1;*/
-	color: #999;
+	color: #333;
 }
 
 .copyright a {
-	color: #bbb;
+	color: #333;
 	text-decoration: none;
 }
 
@@ -1584,7 +1630,7 @@ a:hover.back-to-top {
 /****************************************/
 .ex-2-header {
 	/*padding-top: 9rem;*/
-	background-color: #3366ed;
+	/*background-color: #3366ed;*/
 	text-align: left;
 	/*min-height: 100vh;*/
 }
@@ -1602,12 +1648,12 @@ a:hover.back-to-top {
 }
 
 .ex-2-header .form-container {
-	max-width: 26rem;
+	/*max-width: 26rem;*/
 	margin-right: auto;
 	margin-left: auto;
-	padding: 2.25rem 1.25rem 1.25rem 1.25rem;
+	/*padding: 2.25rem 1.25rem 1.25rem 1.25rem;
 	border-radius: 0.5rem;
-	background-color: #f3f7fd;
+	background-color: #f3f7fd;*/
 }
 
 .ex-2-header .checkbox {
@@ -1644,6 +1690,7 @@ a:hover.back-to-top {
 	.header h1 {
 		font-size: 3.5rem;
 		line-height: 4.125rem;
+	    text-align: center;
 	}
 
 	.header .btn-solid-lg {
@@ -1691,7 +1738,7 @@ a:hover.back-to-top {
 
 	/* Extra Pages */
 	.ex-header {
-		padding-top: 11rem;
+		padding-top: 8rem;
 		padding-bottom: 9rem;
 	}
 
@@ -1991,7 +2038,7 @@ a:hover.back-to-top {
 
 	/* Header */
 	.header .header-content {
-		padding-top: 11rem;
+		padding-top: 8rem;
 		padding-bottom: 5rem;
 	}
 
@@ -2143,4 +2190,4 @@ a:hover.back-to-top {
 	}
 	/* end of extra pages */
 }
-/* end of min-width width 1200px */
+/* end of min-width width 1200px 
