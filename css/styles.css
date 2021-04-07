@@ -338,6 +338,13 @@ a.white {
 	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
 }
 
+@media only screen and (max-width: 600px) {
+	.form-control-input,
+	.form-control-select {
+		width: calc(100vw - 60px);
+	}
+}
+
 .form-control-select {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
