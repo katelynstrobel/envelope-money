@@ -858,6 +858,16 @@ input[type='checkbox'] {
 	line-height: 3rem;
 }
 
+@media only screen and (max-width: 600px) {
+	.header h1 {
+		margin-bottom: 0;
+	}
+
+	.ex-2-header .form-container {
+		margin-top: 2rem;
+	}
+}
+
 .header .p-large {
 	margin-bottom: 2rem;
 	color: #f3f7fd;
@@ -1661,6 +1671,8 @@ a:hover.back-to-top {
 	/*max-width: 26rem;*/
 	margin-right: auto;
 	margin-left: auto;
+	
+		/*margin-top: 2rem;*/
 	/*padding: 2.25rem 1.25rem 1.25rem 1.25rem;
 	border-radius: 0.5rem;
 	background-color: #f3f7fd;*/
@@ -1676,6 +1688,7 @@ a:hover.back-to-top {
 /*****************************/	
 /* Min-width width 768px */
 @media (min-width: 768px) {
+
 	
 	/* General Styles */
 	.p-heading {
