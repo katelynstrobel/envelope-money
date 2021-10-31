@@ -27,6 +27,8 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+
+
 	
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.ico">
@@ -41,7 +43,6 @@
       gtag('config', 'G-91Z5S44KXS');
     </script>
 
-
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -55,69 +56,114 @@
     </div>
     <!-- end of preloader -->
     
+    <!-- <img id="lines-background" src="images/security-pattern.png"/> -->
 
-    <img id="lines-background" src="images/security-pattern.png"/>
-    
-
+    <div id="nav-bar-container">
+        <div id="nav-bar">
+            <div class="hstack">
+                <img id="e-logo" src="images/e-icon.png"/>
+                <h1 id="nav-bar-title">Envelope Money</h1>
+            </div>
+            <button id="get-notified" onclick="getNotifiedTapped()">Get notified</button>
+        </div>
+    </div>
 
     <!-- Header -->
-    <header id="header" class="header">
+    <header id="header" class="header" style="background-image: url('images/security-pattern.png');">
         <div class="header-content">
             <div class="container">
                 <div class="row">
                     <div class="col-lg">
                         <div class="text-container">
 
+
                             <!-- Header -->
                                 <header id="header" class="ex-2-header">
                                     <div class="container">
                                         <div class="work">
-                                            <img id="app-icon" src="images/icon-dark.png"/>
-                                            <h1 id="main-title">Envelope budgeting</h1>
-                                            <h1 id="color-text">made simple.</h1>
+                                            <div class="h-collapse-to-v">
+                                                <div class="left-collapse-to-center">
+                                                    <h1 id="main-title">Envelope budgeting</h1>
+                                                    <h1 id="color-text">made simple</h1>
+                                                </div>
+
+                                                <div id="mock-image-container">
+                                                    <img id="image-activity" class="mock-image" src="images/mock-activity.png">
+                                                    <img id="image-envelopes" class="mock-image" src="images/mock-envelopes.png">
+                                                </div>
+                                            </div>
+
+
+
+                                            <p>
+                                                We believe everyone deserves financial freedom.
+                                                <br/>
+                                                Where saving is as easy as spending.
+                                                <br/>
+                                                Where automation gives you more control, not less.
+                                                <br/>
+                                                Where expenses are paid and goals are met.
+                                                <br/><br/>
+                                                We believe in pushing the envelope on the tools available to everyone 
+                                                <br/>
+                                                to achieve financial freedom.
+                                            </p>
+
+                                            <h3>Coming soon</h3>
+                                            
+                                            <a href="https://discord.gg/dT9YuWSYTd" target="_blank" id="container-discord" class="hstack">
+                                                <img id="logo-discord" src="images/logo-discord.png">
+                                                <div>
+                                                <h5 id="discord-title">Discord</h5>
+                                                <h6 id="discord-subtitle">Help shape Envelope Money</h6>
+                                                </div>
+                                            </a>
+
+
+                                            <div id="bank-disclosure">
+                                                <div class="hstack">
+                                                    <img src="images/FDIC.png">
+                                                    <p id="fdic-text">
+                                                        Banking services provided by Evolve Bank & Trust; Member FDIC. 
+                                                        <br/>
+                                                        Envelope Money is a financial technology company, not a bank.
+                                                    </p>
+                                                </div>
+
+                                                <p id="disclosure-text">
+                                                    Banking services provided by Evolve Bank and Trust, Members FDIC. 
+
+                                                    The Envelope Money card is issued by Evolve Bank and Trust, Member FDIC, pursuant to license by Mastercard International. © Copyright 2021 Envelope Money
+                                                </p>
+                                            </div>
                                            
-                                            <!-- Sign Up Form -->
-                                            <div class="form-container">
-                                                <form id="signUpForm" data-toggle="validator" data-focus="false" onsubmit="event.preventDefault();">
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control-input" id="semail" required>
-                                                        <label class="label-control" for="semail">Enter email address</label>
-                                                        <!-- <div class="help-block with-errors"></div> -->
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button id="submit-button" type="submit" class="form-control-submit-button">Get early access</button>
-                                                    </div>
-                                                    <div class="form-message">
-                                                        <div id="smsgSubmit" class="h3 text-center hidden"></div>
-                                                    </div>
-                                                </form>
-                                            </div> <!-- end of form container -->
+
+
+                                            <div id="form-backing" class="hidden" onclick="getNotifiedTapped()"><!-- Sign Up Form -->
+                                                <div id="form-container" class="form-container" onclick="event.cancelBubble=true;">
+                                                    <form id="signUpForm" data-toggle="validator" onsubmit="event.preventDefault();">
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control-input" id="semail" required>
+                                                            <label class="label-control" for="semail">Enter email address</label>
+                                                            <!-- <div class="help-block with-errors"></div> -->
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button id="submit-button" type="submit" class="form-control-submit-button">Join waitlist</button>
+                                                        </div>
+                                                        <div class="form-message">
+                                                            <div id="smsgSubmit" class="h3 text-center hidden"></div>
+                                                        </div>
+                                                    </form>
+                                                </div> <!-- end of form container -->
+                                            </div>
+
+                                            
+
+
                                             <!-- end of sign up form -->
                                         </div>
                                     </div> <!-- end of container -->
                                 </header> <!-- end of ex-header -->
-
-
-                <!-- Copyright -->
-                    <div class="copyright">
-                        <div class="container">
-                            
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!-- <p class="p-small">Banking Services provided by BBVA USA, Member FDIC. The Envelope Money Visa® Card is issued by BBVA USA pursuant to a license from Visa U.S.A. Inc. and may be used everywhere Visa debit cards are accepted.</p> -->
-                                </div> <!-- end of col -->
-                            </div> <!-- enf of row -->
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p class="p-small">© 2021 Envelope Money <a href="https://inovatik.com">Template by Inovatik</a></p>
-                                </div> <!-- end of col -->
-                            </div> <!-- enf of row -->
-
-                        </div> <!-- end of container -->
-                    </div> <!-- end of copyright --> 
-                    <!-- end of copyright -->
 
 
 
@@ -128,12 +174,9 @@
             </div> <!-- end of container -->
         </div> <!-- end of header-content -->
     </header> <!-- end of header -->
-    <!-- <svg class="header-frame" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 310"><defs><style>.cls-1{fill:#3366ed;}</style></defs><title>header-frame</title><path class="cls-1" d="M0,283.054c22.75,12.98,53.1,15.2,70.635,14.808,92.115-2.077,238.3-79.9,354.895-79.938,59.97-.019,106.17,18.059,141.58,34,47.778,21.511,47.778,21.511,90,38.938,28.418,11.731,85.344,26.169,152.992,17.971,68.127-8.255,115.933-34.963,166.492-67.393,37.467-24.032,148.6-112.008,171.753-127.963,27.951-19.26,87.771-81.155,180.71-89.341,72.016-6.343,105.479,12.388,157.434,35.467,69.73,30.976,168.93,92.28,256.514,89.405,100.992-3.315,140.276-41.7,177-64.9V0.24H0V283.054Z"/></svg> -->
-    <!-- end of header -->
 
     
-    
-    	
+
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <!-- <script src="js/popper.min.js"></script> --> <!-- Popper tooltip library for Bootstrap -->
@@ -206,6 +249,11 @@
                 console.log(error);
                 formFailed();
             });
+        }
+
+        function getNotifiedTapped() {
+            console.log("tappeddddd")
+            document.querySelector("#form-backing").classList.toggle("hidden");
         }
         
     </script>
