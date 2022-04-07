@@ -101,7 +101,8 @@ body.loaded .fadein {
 #main-content {
 	padding-top: 207px;
 	max-width: 1200px;
-	margin-left: 36px;
+	padding-left: 117px;
+    margin-right: 50px;
 }
 
 #main-container {
@@ -141,9 +142,10 @@ body.loaded .fadein {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1396px;
+    max-width: 1200px;
     width: 100%;
-    height: 76px;
+    height: 76px;    
+    margin-right: 50px;
 }
 
 #e-logo {
@@ -187,6 +189,7 @@ body.loaded .fadein {
 
 
 .mock-image {
+    object-fit: contain; /* keep aspect ratio on tiny screens */
 	width: 320px;
 	height: 600px;
 }
@@ -208,7 +211,23 @@ body.loaded .fadein {
     height: 200px;
     position: relative;
     left: -170px;
-    top: 100px;
+    top: -219px;
+    z-index: 1;
+}
+
+#container-card-wide {
+    max-width: 345px;
+    padding-top: 60px;
+}
+
+/* Hidden on wide screens*/
+#container-card-narrow {
+	display: none;
+}
+
+
+#img-card {
+	width: 100%;
 }
 
 #image-activity {
@@ -224,8 +243,20 @@ body.loaded .fadein {
 
 
 #coming-soon {
+	text-align: center;
     color: white;
     margin-top: 40px;
+    padding: 15px 0;
+    background-color: #181A1B;
+    border-radius: 16px;
+}
+
+#coming-soon-button {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
 }
 
 
@@ -275,6 +306,8 @@ body.loaded .fadein {
 
     opacity: 100%;
     transition: opacity 0.3s;
+
+    z-index: 3;
 }
 
 #form-backing.hidden {
@@ -376,6 +409,9 @@ body.loaded .fadein {
 }
 
 
+#img-fdic {
+	max-width: 50px;
+}
 
 
 
@@ -388,8 +424,22 @@ body.loaded .fadein {
 
 
 
+/* MIDDLE SIZE SCREEN */
 /* Min-width width 1200px */
 @media (max-width: 1200px) {
+
+
+	#main-content {
+		margin-left: 0;
+		max-width: 800px;
+		padding-left: 0; 
+		margin-right: 0;
+	}
+
+	#e-logo {
+		margin-left: 0;
+	}
+
 	.h-collapse-to-v {
 		flex-direction: column;
 		width: 100%;
@@ -399,14 +449,25 @@ body.loaded .fadein {
 		text-align: center;
 	}
 
+	#container-card-wide {
+		display: none;
+	}
+
 	#mock-image-container {
 		margin: 0;
 		height: 100%;
 		justify-content: center;
 		width: 100%;
 		margin-bottom: 460px;
-		left: -30px;
-	    top: 0;
+		left: 0;
+	    top: 40px;
+	}
+
+	#container-card-narrow {
+		display: block;
+		max-width: 418px;
+	    top: 67px;
+	    position: relative;
 	}
 
 	#header {
@@ -415,7 +476,8 @@ body.loaded .fadein {
 
 	#nav-bar {
 	    height: 87px;
-        max-width: 785px;
+        max-width: 772px;
+        margin-right: 0;
 	}
 
 	#e-logo {
@@ -449,31 +511,31 @@ body.loaded .fadein {
 	    align-items: center;
 	}
 
-	/*#main-title {
-		font-size: 48px;
-		line-height: 56px;
+	.get-notified-button {
+	    margin-right: 0;
 	}
-
-	#color-text {
-		font-size: 48px;
-		line-height: 56px;
-	}*/
 }
 
 
-/* Min-width width 600px */
+ /*Min-width width 600px */
 @media (max-width: 880px) {
 
 	#nav-bar {
 		align-items: flex-end;
-		max-width: 612px;
+		max-width: 524px;
+	    padding: 0 30px;
 	}
 
 	#mock-image-container {
 		transform: scale(0.7);
-	    top: -130px;
+	    top: -80px;
         margin-bottom: 69px;
         left: 0;
+	}
+
+	#container-card-narrow {
+	    max-width: 370px;
+	    top: 100px;
 	}
 
 	#main-title {
@@ -499,58 +561,13 @@ body.loaded .fadein {
 		margin-top: 28px;
 		font-size: 14px;
 		line-height: 24px;
+		max-width: 377px;
 	}
 
 	.hide-on-mobile {
 		display: none;
 	}
 
-/*	#nav-bar {
-	    flex-direction: column;
-	    align-items: center;
-	    height: auto;
-	    justify-content: center;
-	}*/
-
-	/*#e-logo {
-		margin-left: 0;
-	    margin-bottom: 20px;
-	    width: 112px;
-	    height: 112px;
-	    margin-top: 80px;
-	}*/
-
-/*	#nav-bar-title {
-		display: none;
-	}
-
-	#nav-bar #get-notified-button {
-		margin: 0;
-	}
-
-	#header > .header-content {
-		padding-top: 14rem;
-	}
-
-	#get-notified-button {
-		display: none;
-	}
-
-	#container-discord {
-		display: none;
-	}
-
-	.work > #get-notified-bottom {
-		display: block;
-	}
-
-	#get-notified-top {
-		display: none;
-	}
-
-	#coming-soon {
-		display: none;
-	}*/
 }
 
 #logo-discord {

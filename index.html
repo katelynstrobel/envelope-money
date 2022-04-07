@@ -51,7 +51,8 @@
                 <img id="e-logo" src="images/e-icon.png"/>
                 <h1 id="nav-bar-title">Envelope Money</h1>
             </div>
-            <button id="get-notified-top" class="get-notified-button" onclick="getNotifiedTapped()">Get notified</button>
+            <button id="get-notified-top" class="get-notified-button" onclick="getNotifiedTapped()">Join beta waitlist
+            </button>
         </div>
     </header>
 
@@ -75,7 +76,12 @@
                         We believe in pushing the envelope on the tools available to everyone to achieve financial freedom.
                     </p>
 
-                    <h3 id="coming-soon">Coming soon</h3>
+                    <div id="container-card-wide">
+                        <img id="img-card" src="images/card.png">
+                        <button id="coming-soon-button" onclick="getNotifiedTapped()">
+                            <h3 id="coming-soon">Join beta waitlist</h3>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -83,23 +89,22 @@
                     <img id="image-activity" class="mock-image slide-up-far" src="images/mock-activity.png">
                     <img id="image-envelopes" class="mock-image slide-up-close" src="images/mock-envelopes.png">
                 </div>
-            </div>
-            
-            <!-- <a href="https://discord.gg/dT9YuWSYTd" target="_blank" id="container-discord" class="hstack">
-                <img id="logo-discord" src="images/logo-discord.png">
-                <div>
-                <h5 id="discord-title">Discord</h5>
-                <h6 id="discord-subtitle">Help shape Envelope Money</h6>
-                </div>
-            </a> -->
 
-            <button id="get-notified-bottom" class="get-notified-button" onclick="getNotifiedTapped()">Get notified</button>
+
+
+                <div id="container-card-narrow">
+                    <img id="img-card" src="images/card.png">
+                    <button id="coming-soon-button" onclick="getNotifiedTapped()">
+                        <h3 id="coming-soon">Join beta waitlist</h3>
+                    </button>
+                </div>
+            </div>
 
 
             <div id="bank-disclosure-container" class="vstack">
                 <div id="bank-disclosure" class="vstack left">
                     <div class="hstack">
-                        <img src="images/FDIC.png">
+                        <img id="img-fdic" src="images/FDIC.png">
                         <p id="fdic-text">
                             Banking services provided by Evolve Bank & Trust; Member FDIC. 
                             <br/>
@@ -146,9 +151,8 @@
     <script>
 
         (function() {
-
             addFormValidation();
-            runPageLoadedAnimations();
+            setTimeout(runPageLoadedAnimations, 100);
         })();
 
 
