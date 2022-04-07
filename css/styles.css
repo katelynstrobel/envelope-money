@@ -428,8 +428,8 @@ body.loaded .fadein {
 
 
 /* MIDDLE SIZE SCREEN */
-/* Min-width width 1200px */
-@media (max-width: 1200px) {
+/* Min-width width 1250px */
+@media (max-width: 1250px) {
 
 
 	#main-content {
