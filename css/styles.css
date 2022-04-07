@@ -415,6 +415,9 @@ body.loaded .fadein {
 
 
 
+#disclosure-text {
+	margin-bottom: 25px;
+}
 
 
 
@@ -496,10 +499,6 @@ body.loaded .fadein {
 
 	#image-envelopes {
 	    left: -110px;
-	}
-
-	#disclosure-text {
-		margin-bottom: 25px;
 	}
 
 	#main-container {
