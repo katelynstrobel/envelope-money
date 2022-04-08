@@ -1,6 +1,5 @@
 
 
-/* CSS RESET */
 *,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
@@ -100,9 +99,7 @@ body.loaded .fadein {
 
 #main-content {
 	padding-top: 207px;
-	max-width: 1200px;
-	padding-left: 117px;
-    margin-right: 50px;
+	max-width: 1100px;
 }
 
 #main-container {
@@ -142,10 +139,10 @@ body.loaded .fadein {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1157px;
+    max-width: 1100px;
     width: 100%;
     height: 76px;    
-    margin-right: 50px;
+    /*margin-right: 50px;*/
 }
 
 #e-logo {
@@ -210,7 +207,7 @@ body.loaded .fadein {
     flex-direction: row;
     height: 200px;
     position: relative;
-    left: -170px;
+    left: -240px;
     top: -219px;
     z-index: 1;
 }
@@ -223,6 +220,11 @@ body.loaded .fadein {
 /* Hidden on wide screens*/
 #container-card-narrow {
 	display: none;
+}
+
+#container-e-title {
+	position: relative;
+    right: 92px;
 }
 
 
@@ -454,6 +456,10 @@ body.loaded .fadein {
 
 	#container-card-wide {
 		display: none;
+	}
+
+	#container-e-title {
+	    right: 0;
 	}
 
 	#mock-image-container {
