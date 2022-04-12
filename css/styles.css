@@ -246,6 +246,8 @@ body.loaded .fadein {
     min-height: 332px;
 
     border-radius: 24px;
+
+    padding: 30px;
 }
 
 .tile.double-width {    
@@ -253,7 +255,7 @@ body.loaded .fadein {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .tile-title {
@@ -267,7 +269,7 @@ body.loaded .fadein {
 
 
 .container-tile-double-width-text {
-	margin: 40px;
+	/*margin: 40px;*/
     max-width: 342px;
 }
 
@@ -290,7 +292,7 @@ body.loaded .fadein {
 
 
 .tile-description {
-	max-width: 322px;
+	max-width: 290px;
 
 	font-style: normal;
 	font-weight: 500;
@@ -374,12 +376,12 @@ body.loaded .fadein {
 	width: 350px;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
 	border-radius: 16px;
-	margin: 32px;
+	/*margin: 32px;*/
 }
 
 #image-safe-money {
     width: 358px;
-    margin: 24px 27px;
+    /*margin: 24px 27px;*/
 }
 
 #image-tile-purple {
@@ -683,6 +685,10 @@ body.loaded .fadein {
 
 	#tiles-container {
 	    margin-top: 200px;
+	}
+
+	.tile-description-double-width {
+		padding-bottom: 26px;
 	}
 
 	.tile.double-width.double-height-during-2-col {
