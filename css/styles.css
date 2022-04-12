@@ -153,6 +153,7 @@ body.loaded .fadein {
 	font-weight: 700;
 	font-size: 80px;
 	line-height: 102px;
+	text-align: center;
 	color: var(--white);
 }
 
@@ -162,6 +163,7 @@ body.loaded .fadein {
 	font-weight: 700;
 	font-size: 80px;
 	line-height: 102px;
+	text-align: center;
 
 	/* Colored text */
 	background: linear-gradient(92.78deg, #31B7FF -5.81%, #6385FF 19.82%, #9153F8 48.3%, #E468FB 77.91%, #FF8450 103.54%);
@@ -721,7 +723,7 @@ body.loaded .fadein {
 
 	#max-width-container {
 	    max-width: 921px;
-	    padding: 40px;
+	    padding: 24px;
 	    overflow-x: hidden;
 	}
 
@@ -729,6 +731,10 @@ body.loaded .fadein {
 	#main-subtitle {
 		font-size: 48px;
 		line-height: 56px;
+	}
+
+	.tile {
+		padding: 24px;
 	}
 
 	.tile.double-width,
