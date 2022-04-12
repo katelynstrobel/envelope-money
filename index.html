@@ -337,6 +337,7 @@
       const elements = document.querySelectorAll('.slide-up-far');
 
       elements.forEach(e => {
+        console.log(screen.width);
         if (screen.width < 1000) {
           e.classList.add('loaded'); // Insta slide on mobile
         } else {
