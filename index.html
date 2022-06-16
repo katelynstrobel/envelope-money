@@ -105,9 +105,9 @@
         <div class="tile gray double-width double-height-during-2-col slide-up-far delay100">
 
           <div class="container-tile-double-width-text">
-            <h3 class="tile-title">Safe Money</h3>
+            <h3 class="tile-title">Safe to Spend</h3>
             <p class="tile-description-double-width top">
-              Money can be moved to envelopes on your schedule, leaving you your available-to-spend amount which we call “Safe Money”. 
+              Money can be moved to envelopes on your schedule, leaving you your available-to-spend amount which we call “Safe to Spend". 
             </p>
 
             <p class="tile-description-double-width">
@@ -174,13 +174,13 @@
         </div>
 
 
-        <div id="bank-disclosure-container" class="vstack left">
+<!--         <div id="bank-disclosure-container" class="vstack left">
             <div id="bank-disclosure" class="vstack left">
 
                 <p id="disclosure-text">
                     Banking services provided by Evolve Bank and Trust, Members FDIC. 
 
-                    The Envelope Money card is issued by Evolve Bank and Trust, Member FDIC, pursuant to license by MasterCard. © Copyright 2022 Envelope Money, Inc.
+                    The Envelope Money card is issued by Evolve Bank and Trust, Member FDIC, pursuant to license by Visa. © Copyright 2022 Envelope Money, Inc.
                 </p>
 
                 <div class="row-fdic">
@@ -192,7 +192,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
       </div>
 
@@ -249,43 +249,101 @@
       // });
     }
 
+    // When submit happens
     function addFormValidation() {
 
-        let form = document.querySelector('#signUpForm');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            // if the email field is valid, we let the form submit
+      let form = document.querySelector('#signUpForm');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // if the email field is valid, we let the form submit
 
-            let isFormValid = document.querySelector('#signUpForm').checkValidity();
+        let isFormValid = document.querySelector('#signUpForm').checkValidity();
 
-            // console.log("check validity..");
-            // console.log(isFormValid);
+        // console.log("check validity..");
+        // console.log(isFormValid);
 
-            if(!isFormValid) {
-                // showError();
-                return false;
-            }
-
-            submitEmail();
+        if(!isFormValid) {
+            // showError();
             return false;
-        });
+        }
+
+        submitEmail();
+        return false; // TODO: why is this false??
+      });
     }
 
     function formSuccess() {
-        // // hide form
-        // document.querySelector("#signUpForm").style.display = "none"; 
+      console.log("formSuccess..");
+      // // hide form
 
-        // show success
-        document.querySelector("#form-buttons").classList.add("hidden");
-        document.querySelector("#form-success-text").classList.remove("hidden");
+      // show success
+      document.querySelector("#form-buttons").classList.add("hidden");
+      document.querySelector("#form-success-text").classList.remove("hidden");
     }
 
     function formFailed() {
-        console.log("failed..");
+      console.log("failed..");
     }
 
     async function submitEmail() {
-        // alert('hey');
+      await Promise.all([submitEmailGoogleSheets(), submitEmailCustomerIo()])
+        .then(success => {
+          formSuccess();
+        })
+        .catch(err => {
+          console.log(err);
+          formFailed();
+        }) // 'sad'
+    }
+
+    async function submitEmailCustomerIo() {
+      return new Promise(async (resolve, reject) => {
+        const email = document.querySelector('#form-email').value;
+
+        const formId = 'em_waitlist_001';
+
+        let url = `https://track.customer.io/api/v1/forms/${formId}/submit`; // 73662474
+
+        // {"data":{"email":"test@customer.io"}}
+
+        // curl --request POST \
+        //   --url https://track.customer.io/api/v1/forms/{{form_id}}/submit \
+        //   --header "Authorization: Basic $(echo -n \
+        //   b2e05987e83b906afdb4:aeab751937582656481b | base64)" \
+        //   --header 'content-type: application/json' \
+        //   --data '{"data":{"email":"test@customer.io"}}'
+
+        fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            headers: {
+              'Authorization': 'Basic YjJlMDU5ODdlODNiOTA2YWZkYjQ6YWVhYjc1MTkzNzU4MjY1NjQ4MWI=',
+              // 'Content-Type': 'application/x-www-form-urlencoded'
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              "data": {
+                "email": email
+              }
+            })
+          })
+        .then(response => {
+          console.log("finished customerIO submit");
+          console.log(response);
+            resolve();
+        })
+        .catch((error) => {
+          console.log("finished customerIO submit ERR");
+            console.log(error);
+            reject();
+        });
+      });
+
+    }
+
+    async function submitEmailGoogleSheets() {
+      return new Promise(async (resolve, reject) => {
+
         let email = document.querySelector('#form-email').value;
 
         let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
@@ -298,12 +356,14 @@
             },
           })
         .then(response => {
-            formSuccess();
+            resolve();
         })
         .catch((error) => {
             console.log(error);
-            formFailed();
+            reject();
         });
+
+      });
     }
 
     function joinButtonClicked() {
@@ -313,8 +373,8 @@
 
     function callbackFunc(entries, observer) {
       entries.forEach(entry => {
-        console.log(entry.isIntersecting);
-        console.log(entry.target.id);
+        // console.log(entry.isIntersecting);
+        // console.log(entry.target.id);
 
         if (entry.isIntersecting) {
           entry.target.classList.add('loaded');
@@ -341,7 +401,7 @@
       const elements = document.querySelectorAll('.slide-up-far');
 
       elements.forEach(e => {
-        console.log(screen.width);
+        // console.log(screen.width);
         if (screen.width < 1000) {
           e.classList.add('loaded'); // Insta slide on mobile
         } else {
