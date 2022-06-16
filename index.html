@@ -343,29 +343,28 @@
     }
 
     async function submitEmailGoogleSheets() {
-      return
-      // return new Promise(async (resolve, reject) => {
+      return new Promise(async (resolve, reject) => {
 
-      //   let email = document.querySelector('#form-email').value;
+        let email = document.querySelector('#form-email').value;
 
-      //   let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
+        let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
 
-      //   fetch(url, {
-      //       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      //       mode: 'no-cors', // no-cors, *cors, same-origin
-      //       headers: {
-      //           'Content-Type': 'application/x-www-form-urlencoded'
-      //       },
-      //     })
-      //   .then(response => {
-      //       resolve();
-      //   })
-      //   .catch((error) => {
-      //       console.log(error);
-      //       reject();
-      //   });
+        fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+          })
+        .then(response => {
+            resolve();
+        })
+        .catch((error) => {
+            console.log(error);
+            reject();
+        });
 
-      // });
+      });
     }
 
     function joinButtonClicked() {
