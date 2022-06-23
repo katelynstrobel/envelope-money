@@ -581,7 +581,7 @@ body.loaded .fadein {
     padding-bottom: 166px;
 }
 
-#footer-links {
+#footer-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -607,9 +607,16 @@ body.loaded .fadein {
     padding-top: 21px;
 }
 
+.footer-links-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .footer-links {
-	display: flex;
+    display: flex;
     flex-direction: column;
+    padding-left: 80px;
+    justify-content: flex-end;
 }
 
 .footer-link {
@@ -685,6 +692,7 @@ body.loaded .fadein {
 .disclosure-link {
 	display: flex;
     flex-direction: row;
+    align-items: center;
 
 	font-family: var(--font-family);
     font-style: normal;
@@ -709,7 +717,7 @@ body.loaded .fadein {
 
 
 
- /*Min-width width 600px */
+ /*Min-width width 1436px */
 @media (max-width: 1436px) {
 
 	#main-container {
@@ -761,7 +769,7 @@ body.loaded .fadein {
 
 
 
- /*Min-width width 600px */
+ /*Min-width width 980px */
 @media (max-width: 980px) {
 
 	#max-width-container {
@@ -798,6 +806,10 @@ body.loaded .fadein {
 	    padding-right: 50px;
 	}
 
+	/* Make the footer links vertical */
+	.footer-links-container {
+	    flex-direction: column;
+	}
 
 }
 
