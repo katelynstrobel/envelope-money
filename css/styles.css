@@ -626,7 +626,7 @@ body.loaded .fadein {
 
 
 
-/* BANK DISCLOSURE*/
+/* BOTTOM DISCLOSURE*/
 
 
 .row-fdic {
@@ -669,6 +669,42 @@ body.loaded .fadein {
 	color: #6D7880;
 	max-width: 844px;
 }
+
+
+
+/* Disclosures page (privacy policy, etc.) */
+#disclosure-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 100px;
+    padding-top: 140px;
+}
+
+.disclosure-link {
+	display: flex;
+    flex-direction: row;
+
+	font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 64px;
+    padding-bottom: 17px;
+}
+
+.disclosure-link img {
+    width: 64px;
+    height: 64px;
+    margin-left: 21px;
+}
+
+.disclosure-link {
+	color: white;
+	text-decoration: none;
+}
+
 
 
 
