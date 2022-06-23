@@ -717,7 +717,7 @@ body.loaded .fadein {
 
 
 
- /*Min-width width 1436px */
+ /* Min-width width 1436px */
 @media (max-width: 1436px) {
 
 	#main-container {
@@ -810,6 +810,11 @@ body.loaded .fadein {
 	.footer-links-container {
 	    flex-direction: column;
 	}
+
+	#disclosure-container {
+	     padding-left: 0;
+	}
+
 
 }
 
