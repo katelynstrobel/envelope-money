@@ -278,9 +278,13 @@
       });
     }
 
+    let formSucceeded = false;
+
     function formSuccess() {
       console.log("formSuccess..");
       // // hide form
+
+      formSucceeded = true;
 
       // show success
       document.querySelector("#form-buttons").classList.add("hidden");
@@ -292,6 +296,10 @@
     }
 
     async function submitEmail() {
+      // Skip if already success
+      if (formSucceeded) {
+        return;
+      }
       await Promise.all([submitEmailGoogleSheets(), submitEmailCustomerIo()])
         .then(success => {
           formSuccess();
