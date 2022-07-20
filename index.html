@@ -300,7 +300,7 @@
       if (formSucceeded) {
         return;
       }
-      await Promise.all([submitEmailGoogleSheets(), submitEmailCustomerIo()])
+      await Promise.all([submitWaitlistEmailForm(), submitWaitlistEmailCustomer()])
         .then(success => {
           formSuccess();
         })
@@ -310,30 +310,17 @@
         }) // 'sad'
     }
 
-    async function submitEmailCustomerIo() {
+    async function submitWaitlistEmailCustomer() {
       return new Promise(async (resolve, reject) => {
         const email = document.querySelector('#form-email').value;
+        console.log("submitting: " + email);
 
-        const formId = 'em_waitlist_001';
-
-        let url = `https://track.customer.io/api/v1/forms/${formId}/submit`; // 73662474
-
-
-        // {"data":{"email":"test@customer.io"}}
-
-        // curl --request POST \
-        //   --url https://track.customer.io/api/v1/forms/{{form_id}}/submit \
-        //   --header "Authorization: Basic $(echo -n \
-        //   b2e05987e83b906afdb4:aeab751937582656481b | base64)" \
-        //   --header 'content-type: application/json' \
-        //   --data '{"data":{"email":"test@customer.io"}}'
+        let url = `https://api.envelopemoney.com/submit-waitlist-email/${email}`;
 
         fetch(url, {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          // mode: 'no-cors', // no-cors, *cors, same-origin
+          mode: 'no-cors', // no-cors, *cors, same-origin
           headers: {
-            'Authorization': 'Basic YjJlMDU5ODdlODNiOTA2YWZkYjQ6YWVhYjc1MTkzNzU4MjY1NjQ4MWI=',
-            // 'Content-Type': 'application/x-www-form-urlencoded'
             'content-type': 'application/json'
           },
           body: JSON.stringify({
@@ -343,12 +330,12 @@
           })
         })
         .then(response => {
-          console.log("finished customerIO submit");
+          console.log("..submitted to email list");
           console.log(response);
             resolve();
         })
         .catch((error) => {
-          console.log("finished customerIO submit ERR");
+          console.log("..error submitting to email list");
             console.log(error);
             reject();
         });
@@ -356,7 +343,8 @@
 
     }
 
-    async function submitEmailGoogleSheets() {
+    async function submitWaitlistEmailForm() {
+
       return new Promise(async (resolve, reject) => {
 
         let email = document.querySelector('#form-email').value;
@@ -371,11 +359,13 @@
             },
           })
         .then(response => {
-            resolve();
+          console.log("..submitted form");
+          resolve();
         })
         .catch((error) => {
-            console.log(error);
-            reject();
+          console.log("..error submitting form");
+          console.log(error);
+          reject();
         });
 
       });
