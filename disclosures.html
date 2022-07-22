@@ -168,6 +168,25 @@
   </div>
 
 
+  <script>
+
+    (function() {
+      setTimeout(runPageLoadedAnimations, 100);
+    })();
+
+    function runPageLoadedAnimations() {
+      document.body.className += " loaded";
+
+      // const elements = document.querySelectorAll('.slide-up-far');
+      // elements.forEach(e => {
+      //   e.classList.add("loaded");
+      // });
+    }
+
+    
+  </script>
+
+
 
 
 </body>

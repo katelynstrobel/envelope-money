@@ -158,11 +158,58 @@
       </div>
 
 
+
+
     </div> 
     <!--  Max width container -->
 
 
+    <div id="form-backing" class="hidden" onclick="joinButtonClicked()"><!-- Sign Up Form -->
+      <div id="form-container" class="form-container" onclick="event.cancelBubble=true;">
+        <form id="signUpForm" onsubmit="event.preventDefault();">
+            
+          <h3 id="get-notified">Get notified</h3>
+          <p id="get-notified-body">Sign up to be notified as soon as Envelope Money is available in the App Store</p>
+          <input id="form-email" type="email" placeholder="Email address" required>
+
+          <div class="hstack right">
+            <div id="form-buttons" class="hstack right">
+              <button id="cancel-button" type="reset" onclick="joinButtonClicked()">Cancel</button>
+              <button id="submit-button" type="submit">Sign up</button>
+            </div>
+
+            <h3 id="form-success-text" class="hidden">You're on the waitlist!</h3>
+          </div>
+          <!-- <div id="smsgSubmit" class="h3 text-center hidden"></div> -->
+
+        </form>
+      </div> <!-- end of form container -->
+    </div>
+
+
+
   </div>
+
+
+
+
+  <script>
+
+    (function() {
+      setTimeout(runPageLoadedAnimations, 100);
+    })();
+
+    function runPageLoadedAnimations() {
+      document.body.className += " loaded";
+
+      // const elements = document.querySelectorAll('.slide-up-far');
+      // elements.forEach(e => {
+      //   e.classList.add("loaded");
+      // });
+    }
+
+    
+  </script>
 
 
 
