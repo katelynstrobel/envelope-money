@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "details": [
+       {
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.envelopemoney" ],
+         "components": [
+           {
+              "/": "/activate",
+              "comment": "Matches envelopemoney.com/activate URL"
+           }
+         ]
+       }
+     ]
+   },
+   "webcredentials": {
+      "apps": [ "SL9C776NK9.com.envelopemoney.envelopemoney" ]
+   }
+}
