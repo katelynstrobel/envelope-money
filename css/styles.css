@@ -66,17 +66,17 @@ body.loaded .fadein {
     transition: transform 1.5s;
 }
 
-.slide-up-far.delay100{
+.delay100{
     transition-delay: 100ms;
 }
 
 
-.slide-up-far.delay200{
+.delay300{
     transition-delay: 200ms;
 }
 
 
-.slide-up-far.delay300{
+.delay500{
     transition-delay: 300ms;
 }
 

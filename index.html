@@ -84,25 +84,25 @@
 
       <div id="tiles-container">
 
-        <div class="tile blue slide-up-far delay100">
+        <div class="tile blue slide-up-close delay100">
           <img id="image-tile-blue" src="images/notification.png">
           <h3 class="tile-title">Useful notifications</h3>
           <p class="tile-description">You can control what types of notifications you get and when.</p>
         </div>
 
-        <div class="tile yellow slide-up-far delay200">
+        <div class="tile yellow slide-up-close delay300">
           <h3 class="tile-title">Flexible budgeting</h3>
           <p class="tile-description">Need a percentage of your paycheck for one bill and a set amount for another? Easily done with Envelope Money.</p>
           <img id="image-tile-yellow" src="images/envelope-1.png">
         </div>
 
-        <div id="tile-cards" class="tile gray slide-up-far delay300">
+        <div id="tile-cards" class="tile gray slide-up-close delay500">
           <img id="image-tile-cards" src="images/cards.png">
           <h3 class="tile-title">Physical & virtual</h3>
           <p class="tile-description">Instantly have access to your account with a virtual card, perfect for paying online bills or expenses.</p>
         </div>
 
-        <div class="tile gray double-width double-height-during-2-col slide-up-far delay100">
+        <div class="tile gray double-width double-height-during-2-col slide-up-close delay100">
 
           <div class="container-tile-double-width-text">
             <h3 class="tile-title">Safe to Spend</h3>
@@ -119,7 +119,7 @@
         </div>
 
 
-        <div class="tile purple slide-up-far delay200">
+        <div class="tile purple slide-up-close delay300">
 
           <img id="image-tile-purple" src="images/lock.png">
           <h3 class="tile-title">Secure from the start</h3>
@@ -128,14 +128,14 @@
           </p>
         </div>
 
-        <div class="tile gray slide-up-far delay100">
+        <div class="tile gray slide-up-close delay100">
 
           <img id="image-tile-memojis" src="images/memojis.png">
           <h3 class="tile-title">Joint accounts</h3>
           <p class="tile-description">Share the responsibilty for reaching your goals and paying expenses – custodial accounts are just around the corner.</p>
         </div>
 
-        <div class="tile green double-width slide-up-far delay200">
+        <div class="tile green double-width slide-up-close delay300">
           <div class="container-tile-double-width-text">
             <h3 class="tile-title">Goals achieved</h3>
             <p class="tile-description-double-width top">
@@ -403,16 +403,17 @@
 
       let observer = new IntersectionObserver(callbackFunc, intersectionObserverOptions);
       
-      const elements = document.querySelectorAll('.slide-up-far');
+      const elements = document.querySelectorAll('.slide-up-far, .slide-up-close');
 
       elements.forEach(e => {
-        // console.log(screen.width);
         if (screen.width < 1000) {
           e.classList.add('loaded'); // Insta slide on mobile
         } else {
           observer.observe(e);
         }
       });
+
+
     }
     
   </script>
