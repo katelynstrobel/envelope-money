@@ -329,6 +329,8 @@ body.loaded .fadein {
 
 .tile.blue {
 	background: radial-gradient(144.49% 139.57% at 18.43% 0%, #1ABDE6 0%, #437CEF 100%);
+	padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -356,9 +358,8 @@ body.loaded .fadein {
 
 
 #image-tile-blue {
-	width: 350px;
+	width: 400px;
 	filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.2));
-
 
     margin-bottom: 37px;
 
