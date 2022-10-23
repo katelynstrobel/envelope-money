@@ -246,10 +246,36 @@
   <script>
 
     (function() {
+      disableNonUs();
       addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
     })();
+
+    function disableNonUs() {
+
+      let url = `http://ip-api.com/json/?fields=countryCode`;
+
+      fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        let countryCode = json.countryCode;
+        if (countryCode !== "US") {
+          document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
+        }
+      })
+      .catch((error) => {
+        console.log("..error disableNonUs");
+        console.log(error);
+      });
+    }
 
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
