@@ -254,22 +254,27 @@
 
     function disableNonUs() {
 
-      let url = `http://ip-api.com/json/?fields=countryCode`;
+      let url = `https://ipapi.co/json/`;
 
       fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
         headers: {
           'content-type': 'application/json'
         }
       })
       .then(res => {
+        console.log("..disableNonUs");
+        console.log(res);
         return res.json();
       })
       .then(json => {
-        let countryCode = json.countryCode;
-        if (countryCode !== "US") {
-          document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
-        }
+
+        console.log(json);
+        // let countryCode = json.countryCode;
+        // if (countryCode !== "US") {
+        //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
+        // }
       })
       .catch((error) => {
         console.log("..error disableNonUs");
