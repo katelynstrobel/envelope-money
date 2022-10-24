@@ -30,6 +30,14 @@
   <!-- Favicon  -->
   <link rel="icon" href="images/favicon.png">
 
+  <script async src="http://ip-api.com/json/?callback=disableNonUsCallback&fields=countryCode"></script>
+  <script>
+    function disableNonUsCallback(res) {
+      console.log('disable non us..');
+      console.log(res);
+      console.log(res.countryCode);
+    }
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-91Z5S44KXS"></script>
@@ -241,46 +249,44 @@
   <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0ba93bd6-ae65-45d7-af08-108b7111f8f4"> </script>
   <!-- End of envelopemoneyinc Zendesk Widget script -->
 
-
-
   <script>
 
     (function() {
-      disableNonUs();
       addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
     })();
 
-    function disableNonUs() {
+    // function disableNonUs() {
 
-      let url = `https://api.envelopemoney.com/ip-lookup/`;
+    //   // let url = `https://api.envelopemoney.com/ip-lookup/`;
+    //   let url = `http://ip-api.com/json/?callback=res`;
 
-      fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'no-cors', // no-cors, *cors, same-origin
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
-      .then(res => {
-        console.log("..disableNonUs");
-        console.log(res);
-        return res.json();
-      })
-      .then(json => {
+    //   fetch(url, {
+    //     method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    //     mode: 'no-cors', // no-cors, *cors, same-origin
+    //     headers: {
+    //       'content-type': 'application/json'
+    //     }
+    //   })
+    //   .then(res => {
+    //     console.log("..disableNonUs");
+    //     console.log(res);
+    //     return res.json();
+    //   })
+    //   .then(json => {
 
-        console.log(json);
-        // let countryCode = json.countryCode;
-        // if (countryCode !== "US") {
-        //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
-        // }
-      })
-      .catch((error) => {
-        console.log("..error disableNonUs");
-        console.log(error);
-      });
-    }
+    //     console.log(json);
+    //     // let countryCode = json.countryCode;
+    //     // if (countryCode !== "US") {
+    //     //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
+    //     // }
+    //   })
+    //   .catch((error) => {
+    //     console.log("..error disableNonUs");
+    //     console.log(error);
+    //   });
+    // }
 
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
