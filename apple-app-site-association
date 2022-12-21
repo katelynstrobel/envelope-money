@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
        {
-         "appIDs": [ "SL9C776NK9.com.envelopemoney.envelopemoney" ],
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.prod" ],
          "components": [
            {
               "/": "/activate",
@@ -13,6 +13,6 @@
      ]
    },
    "webcredentials": {
-      "apps": [ "SL9C776NK9.com.envelopemoney.envelopemoney" ]
+      "apps": [ "SL9C776NK9.com.envelopemoney.prod" ]
    }
 }
