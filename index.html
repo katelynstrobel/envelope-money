@@ -60,10 +60,9 @@
       <h1 id="main-title">Envelope budgeting</h1>
       <h1 id="main-subtitle">made simple</h1>
 
-      <a class="join-waitlist-btn" href="https://apps.apple.com/us/app/envelope-money/id6444296251" target="_blank">
-        <h4>Join the beta</h4>
-      </a>
-
+      <button class="join-waitlist-btn" onclick="joinButtonClicked()">
+        <h4>Join Beta Waitlist</h4>
+      </button>
 
       <img id="image-mock-main-hand" class="slide-up-far" src="images/mock-main-hand.png">
 
@@ -82,10 +81,11 @@
           We believe in pushing the envelope on the tools available to everyone to achieve financial freedom.
         </p>
 
+        <h2 id="half-life">Coming soon to US markets</h2>
 
-        <a class="join-waitlist-btn" href="https://apps.apple.com/us/app/envelope-money/id6444296251" target="_blank">
-          <h4>Join the beta</h4>
-        </a>
+        <button class="join-waitlist-btn" onclick="joinButtonClicked()">
+          <h4>Join Beta Waitlist</h4>
+        </button>
       </div>
 
 
@@ -95,7 +95,7 @@
         <div class="tile blue slide-up-close delay100">
           <img id="image-tile-blue" src="images/notification.png">
           <h3 class="tile-title">Useful notifications</h3>
-          <p class="tile-description">Control what types of notifications you get and when.</p>
+          <p class="tile-description">You can control what types of notifications you get and when.</p>
         </div>
 
         <div class="tile yellow slide-up-close delay300">
@@ -174,8 +174,12 @@
 
           <div class="footer-links-container">
             <div class="footer-links">
+<<<<<<< HEAD
               <!-- <a class="footer-link" href="https://angel.co/company/envelope-money/jobs" target="_blank">Careers</a> -->
               <a class="footer-link" href="https://status.envelopemoney.com/" target="_blank">Status</a>
+=======
+              <a class="footer-link" href="https://angel.co/company/envelope-money/jobs" target="_blank">Careers</a>
+>>>>>>> parent of b085231 (Remove waitlist)
               <a class="footer-link" href="disclosures">Disclosures</a>
 
             </div>
@@ -219,7 +223,32 @@
 
 
 
+    </div> 
+    <!--  Max width container -->
+
+
+    <div id="form-backing" class="hidden" onclick="joinButtonClicked()"><!-- Sign Up Form -->
+      <div id="form-container" class="form-container" onclick="event.cancelBubble=true;">
+        <form id="signUpForm" onsubmit="event.preventDefault();">
+            
+          <h3 id="get-notified">Get notified</h3>
+          <p id="get-notified-body">Sign up to be notified as soon as Envelope Money is available in the App Store</p>
+          <input id="form-email" type="email" placeholder="Email address" required>
+
+          <div class="hstack right">
+            <div id="form-buttons" class="hstack right">
+              <button id="cancel-button" type="reset" onclick="joinButtonClicked()">Cancel</button>
+              <button id="submit-button" type="submit">Sign up</button>
+            </div>
+
+            <h3 id="form-success-text" class="hidden">You're on the waitlist!</h3>
+          </div>
+          <!-- <div id="smsgSubmit" class="h3 text-center hidden"></div> -->
+
+        </form>
+      </div> <!-- end of form container -->
     </div>
+
 
 
   </div>
@@ -233,10 +262,41 @@
   <script>
 
     (function() {
-      // addFormValidation();
+      addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
     })();
+
+    // function disableNonUs() {
+
+    //   // let url = `https://api.envelopemoney.com/ip-lookup/`;
+    //   let url = `http://ip-api.com/json/?callback=res`;
+
+    //   fetch(url, {
+    //     method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    //     mode: 'no-cors', // no-cors, *cors, same-origin
+    //     headers: {
+    //       'content-type': 'application/json'
+    //     }
+    //   })
+    //   .then(res => {
+    //     console.log("..disableNonUs");
+    //     console.log(res);
+    //     return res.json();
+    //   })
+    //   .then(json => {
+
+    //     console.log(json);
+    //     // let countryCode = json.countryCode;
+    //     // if (countryCode !== "US") {
+    //     //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
+    //     // }
+    //   })
+    //   .catch((error) => {
+    //     console.log("..error disableNonUs");
+    //     console.log(error);
+    //   });
+    // }
 
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
@@ -245,6 +305,126 @@
       // elements.forEach(e => {
       //   e.classList.add("loaded");
       // });
+    }
+
+    // When submit happens
+    function addFormValidation() {
+
+      let form = document.querySelector('#signUpForm');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // if the email field is valid, we let the form submit
+
+        let isFormValid = document.querySelector('#signUpForm').checkValidity();
+
+        // console.log("check validity..");
+        // console.log(isFormValid);
+
+        if(!isFormValid) {
+            // showError();
+            return false;
+        }
+
+        submitEmail();
+        return false; // TODO: why is this false??
+      });
+    }
+
+    let formSucceeded = false;
+
+    function formSuccess() {
+      console.log("formSuccess..");
+      // // hide form
+
+      formSucceeded = true;
+
+      // show success
+      document.querySelector("#form-buttons").classList.add("hidden");
+      document.querySelector("#form-success-text").classList.remove("hidden");
+    }
+
+    function formFailed() {
+      console.log("failed..");
+    }
+
+    async function submitEmail() {
+      // Skip if already success
+      if (formSucceeded) {
+        return;
+      }
+      await Promise.all([submitWaitlistEmailForm(), submitWaitlistEmailCustomer()])
+        .then(success => {
+          formSuccess();
+        })
+        .catch(err => {
+          console.log(err);
+          formFailed();
+        }) // 'sad'
+    }
+
+    async function submitWaitlistEmailCustomer() {
+      return new Promise(async (resolve, reject) => {
+        const email = document.querySelector('#form-email').value;
+        console.log("submitting: " + email);
+
+        let url = `https://api.envelopemoney.com/submit-waitlist-email/${email}`;
+
+        fetch(url, {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'no-cors', // no-cors, *cors, same-origin
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            "data": {
+              "email": email
+            }
+          })
+        })
+        .then(response => {
+          console.log("..submitted to email list");
+          console.log(response);
+            resolve();
+        })
+        .catch((error) => {
+          console.log("..error submitting to email list");
+            console.log(error);
+            reject();
+        });
+      });
+
+    }
+
+    async function submitWaitlistEmailForm() {
+
+      return new Promise(async (resolve, reject) => {
+
+        let email = document.querySelector('#form-email').value;
+
+        let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
+
+        fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+          })
+        .then(response => {
+          console.log("..submitted form");
+          resolve();
+        })
+        .catch((error) => {
+          console.log("..error submitting form");
+          console.log(error);
+          reject();
+        });
+
+      });
+    }
+
+    function joinButtonClicked() {
+      document.querySelector("#form-backing").classList.toggle("hidden");
     }
 
 

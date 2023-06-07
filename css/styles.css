@@ -9,6 +9,10 @@
 TEMPORARY
 */
 
+#half-life {
+	padding-bottom: 20px;
+}
+
 :root {
   --font-family: "Inter", sans-serif;
   --gray-tile-background: #191919;
@@ -186,15 +190,12 @@ body.loaded .fadein {
 	font-size: 16px;
 	line-height: 19px;
 	color: var(--white);
-	text-decoration: none;
 
 	background-color: var(--gray-90);
 	padding: 13px 20px;
 	border: none;
 	border-radius: 12px;
-
-    display: flex;
-    width: fit-content;
+	/*background: none;*/
 }
 
 
@@ -404,6 +405,145 @@ body.loaded .fadein {
 	margin-bottom: 24px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* FORM */
+
+#form-container {
+    background: #16181B;
+    width: 486px;
+    padding: 40px;
+    border-radius: 32px;
+    margin: 0 32px;
+}
+
+#form-backing {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0.3s;
+    transition: opacity 0.3s;
+
+    z-index: 3;
+}
+
+#form-backing.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+#form-email {
+	width: 100%;
+    background-color: black;
+    border-radius: 20px;
+    height: 64px;
+    border: 0;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+
+    margin-top: 27px;
+    margin-bottom: 40px;
+
+    /*box-shadow: 0 0 10px #719ECE;*/
+}
+
+#form-email:focus {
+	outline: none;
+	border: 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
+}
+
+
+#get-notified-bottom {
+	/*margin-top: 80px;*/
+	display: none;
+}
+
+#get-notified-top {
+	display: block;
+}
+
+
+#cancel-button {
+	background-color: black;
+    color: white;
+    height: 44px;
+    padding: 12px 24px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#submit-button {
+	background-color: #00A5FF;
+    color: white;
+    height: 44px;
+    padding: 12px 24px;
+    margin-left: 16px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+
+#cancel-button:hover {
+	-webkit-filter: brightness(70%)
+}
+
+#submit-button:hover {
+	-webkit-filter: brightness(115%)
+}
+
+#form-success {
+	font-family: var(--font-family);
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+#form-success-text {
+    font-family: var(--font-family);
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 20px;
+
+	/* White */
+
+	color: #FFFFFF;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
 
 
 #img-fdic {
