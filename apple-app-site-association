@@ -2,17 +2,21 @@
   "applinks": {
     "details": [
        {
-         "appIDs": [ "SL9C776NK9.com.envelopemoney.prod" ],
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.prod", "SL9C776NK9.com.envelopemoney.staging", "SL9C776NK9.com.envelopemoney.dev" ],
          "components": [
            {
               "/": "/activate",
               "comment": "Matches envelopemoney.com/activate URL"
+           },
+           {
+              "/": "/auth",
+              "comment": "Matches envelopemoney.com/auth URL"
            }
          ]
        }
      ]
    },
    "webcredentials": {
-      "apps": [ "SL9C776NK9.com.envelopemoney.prod" ]
+      "apps": [ "SL9C776NK9.com.envelopemoney.prod", "SL9C776NK9.com.envelopemoney.staging", "SL9C776NK9.com.envelopemoney.dev" ]
    }
 }
