@@ -7,10 +7,33 @@
            {
               "/": "/activate",
               "comment": "Matches envelopemoney.com/activate URL"
-           },
+           }
+         ]
+       },
+       {
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.dev" ],
+         "components": [
            {
-              "/": "/auth",
-              "comment": "Matches envelopemoney.com/auth URL"
+              "/": "/auth-dev",
+              "comment": "Matches envelopemoney.com/auth-dev URL"
+           }
+         ]
+       },
+       {
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.staging" ],
+         "components": [
+           {
+              "/": "/auth-staging",
+              "comment": "Matches envelopemoney.com/auth-staging URL"
+           }
+         ]
+       },
+       {
+         "appIDs": [ "SL9C776NK9.com.envelopemoney.prod" ],
+         "components": [
+           {
+              "/": "/auth-prod",
+              "comment": "Matches envelopemoney.com/auth-prod URL"
            }
          ]
        }
