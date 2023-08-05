@@ -50,6 +50,11 @@
     (function() {
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
+
+      // Redirect to mobile app url
+      // If a user opened the Stytch link on their phone, and the apple-app-site-association file failed,
+      // this forces a redirect to the app
+      window.location.replace('envelopemoney-dev://auth' + window.location.search);
     })();
 
 
