@@ -40,6 +40,14 @@
 
         <h1 style="text-align: center;">Link must be opened from your phone</h1>
 
+
+        <br/>
+        <br/>
+        <a class="disclosure-link" id="auth-redirect-link" target="_blank" href="#">
+          <h3 id="auth-redirect-text">Click here if you don't get redirected</h3>
+          <img id="auth-redirect-image" src="images/arrow-down-circle.png">
+        </a>
+
     </div> 
     <!--  Max width container -->
 
@@ -54,7 +62,9 @@
       // Redirect to mobile app url
       // If a user opened the Stytch link on their phone, and the apple-app-site-association file failed,
       // this forces a redirect to the app
-      window.location.replace('envelopemoney-dev://auth' + window.location.search);
+      const redirectLink = 'envelopemoney-prod://auth' + window.location.search
+      window.location.replace(redirectLink);
+      document.getElementById('auth-redirect-link').href = redirectLink;
     })();
 
 

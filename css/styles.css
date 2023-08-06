@@ -712,7 +712,18 @@ body.loaded .fadein {
 	text-decoration: none;
 }
 
+#auth-redirect-link {
+/*    font-weight: 500;*/
+    font-size: 18px;
+    line-height: initial;
+}
 
+
+#auth-redirect-image {
+    width: 48px;
+    height: 48px;
+    margin-left: 21px;
+}
 
 
 
