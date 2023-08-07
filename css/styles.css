@@ -214,6 +214,11 @@ body.loaded .fadein {
     margin-bottom: -166px;
 }
 
+#mission-container #yc-logo {
+	max-width: 210px;
+	padding-left: 3px;
+	padding-bottom: 35px;
+}
 
 #mission-text {
 	color: var(--gray-40);
