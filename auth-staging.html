@@ -62,7 +62,7 @@
       // Redirect to mobile app url
       // If a user opened the Stytch link on their phone, and the apple-app-site-association file failed,
       // this forces a redirect to the app
-      const redirectLink = 'envelopemoney-prod://auth' + window.location.search
+      const redirectLink = 'envelopemoney-staging://auth' + window.location.search
       window.location.replace(redirectLink);
       document.getElementById('auth-redirect-link').href = redirectLink;
     })();
