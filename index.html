@@ -69,7 +69,7 @@
       <h1 id="main-subtitle">with built-in budgeting</h1>
 
       <button class="join-waitlist-btn" onclick="joinButtonClicked()">
-        <h4>Join Beta Waitlist</h4>
+        <h4>Join Beta</h4>
       </button>
 
       <img id="image-mock-main-hand" class="slide-up-far" src="images/mock-main-hand.png">
@@ -91,10 +91,10 @@
           We believe in pushing the envelope on the tools available to everyone to achieve financial freedom.
         </p>
 
-        <h2 id="half-life">Coming soon to US markets</h2>
+        <!-- <h2 id="half-life">Coming soon to US markets</h2> -->
 
         <button class="join-waitlist-btn" onclick="joinButtonClicked()">
-          <h4>Join Beta Waitlist</h4>
+          <h4>Join Beta</h4>
         </button>
       </div>
 
@@ -254,7 +254,10 @@
         <form id="signUpForm" onsubmit="event.preventDefault();">
             
           <h3 id="get-notified">Get notified</h3>
-          <p id="get-notified-body">Sign up to be notified as soon as Envelope Money is available in the App Store</p>
+          <p id="get-notified-body">Envelope Money is in closed beta on the App Store. We will open more Early Access Member spots mid August 2023.
+            <br/>
+            <br/>
+          Sign up to receive your account invite.</p>
           <input id="form-email" type="email" placeholder="Email address" required>
 
           <div class="hstack right">
@@ -421,7 +424,18 @@
 
       return new Promise(async (resolve, reject) => {
 
+
         let email = document.querySelector('#form-email').value;
+
+
+        // console.log("submit to posthog..")
+        // Posthog.identify..
+        posthog.identify(
+            email, //'distinct_id', // Required. Replace 'distinct_id' with your user's unique identifier
+            { email },  // $set, optional
+        );
+
+        // console.log("..submitted to posthog")
 
         let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
 
