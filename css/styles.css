@@ -355,10 +355,21 @@ body.loaded .fadein {
 	background: radial-gradient(70.33% 127.41% at 80.86% -24.4%, #CACC66 0%, #66CC66 100%);
 }
 
+#hand-container {
+	position: relative;
+	margin-top: 41px;
+}
 
 #image-mock-main-hand {
-	margin-top: 41px;
 	max-width: 1030px;
+}
+
+#image-techcrunch-badge {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
 }
 
 
@@ -732,7 +743,7 @@ body.loaded .fadein {
 
 
 
- /* Min-width width 1436px */
+ /* Two columns */
 @media (max-width: 1436px) {
 
 	#main-container {
@@ -777,6 +788,10 @@ body.loaded .fadein {
 	    grid-row: 1;
 	}
 
+	#image-techcrunch-badge {
+		right: 48px;
+	}
+
 
 }
 
@@ -784,7 +799,7 @@ body.loaded .fadein {
 
 
 
- /*Min-width width 980px */
+ /* One column */
 @media (max-width: 980px) {
 
 	#max-width-container {
@@ -828,6 +843,10 @@ body.loaded .fadein {
 
 	#disclosure-container {
 	     padding-left: 0;
+	}
+
+	#image-techcrunch-badge {
+		display: none;
 	}
 
 
