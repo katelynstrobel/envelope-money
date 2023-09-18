@@ -168,31 +168,6 @@
     <!--  Max width container -->
 
 
-    <div id="form-backing" class="hidden" onclick="joinButtonClicked()"><!-- Sign Up Form -->
-      <div id="form-container" class="form-container" onclick="event.cancelBubble=true;">
-        <form id="signUpForm" onsubmit="event.preventDefault();">
-            
-          <h3 id="get-notified">Get notified</h3>
-          <p id="get-notified-body">Envelope Money is in closed beta on the App Store. We will open more Early Access Member spots mid August 2023.
-            <br/>
-            <br/>
-          Sign up to receive your account invite.</p>
-          <input id="form-email" type="email" placeholder="Email address" required>
-
-          <div class="hstack right">
-            <div id="form-buttons" class="hstack right">
-              <button id="cancel-button" type="reset" onclick="joinButtonClicked()">Cancel</button>
-              <button id="submit-button" type="submit">Sign up</button>
-            </div>
-
-            <h3 id="form-success-text" class="hidden">You're on the waitlist!</h3>
-          </div>
-          <!-- <div id="smsgSubmit" class="h3 text-center hidden"></div> -->
-
-        </form>
-      </div> <!-- end of form container -->
-    </div>
-
 
 
   </div>
@@ -204,8 +179,32 @@
       setTimeout(runPageLoadedAnimations, 100);
     })();
 
+
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
+
+      // const elements = document.querySelectorAll('.slide-up-far');
+      // elements.forEach(e => {
+      //   e.classList.add("loaded");
+      // });
+    }
+
+
+    function callbackFunc(entries, observer) {
+      entries.forEach(entry => {
+        // console.log(entry.isIntersecting);
+        // console.log(entry.target.id);
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('loaded');
+        } else {
+          // document.getElementById(entry.target.id).classList.add('loaded');
+        }
+        // var txt = entry.target.id + " visibility: " + entry.isIntersecting;
+        
+        // document.getElementById('log').appendChild(document.createTextNode(txt));
+        // document.getElementById('log').appendChild(document.createElement("br"));
+      });
     }
 
     function setupSlideOnView() {
