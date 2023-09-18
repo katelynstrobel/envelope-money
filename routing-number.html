@@ -30,15 +30,6 @@
   <!-- Favicon  -->
   <link rel="icon" href="images/favicon.png">
 
-  <script async src="http://ip-api.com/json/?callback=disableNonUsCallback&fields=countryCode"></script>
-  <script>
-    function disableNonUsCallback(res) {
-      console.log('disable non us..');
-      console.log(res);
-      console.log(res.countryCode);
-    }
-  </script>
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-91Z5S44KXS"></script>
   <script>
@@ -207,20 +198,6 @@
   </div>
 
 
-  <!-- Intercom customer support -->
-<!--   <script>
-    window.intercomSettings = {
-      api_base: "https://api-iam.intercom.io",
-      app_id: "o3iw4ie7"
-    };
-  </script>
-
-  <script>
-  // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/o3iw4ie7'
-  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/o3iw4ie7';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-  </script> -->
-
-
 
   <!-- envelopemoneyinc Zendesk Widget script  -->
   <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0ba93bd6-ae65-45d7-af08-108b7111f8f4"> </script>
@@ -230,198 +207,12 @@
   <script>
 
     (function() {
-      addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
     })();
 
-    // function disableNonUs() {
-
-    //   // let url = `https://api.envelopemoney.com/ip-lookup/`;
-    //   let url = `http://ip-api.com/json/?callback=res`;
-
-    //   fetch(url, {
-    //     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //     mode: 'no-cors', // no-cors, *cors, same-origin
-    //     headers: {
-    //       'content-type': 'application/json'
-    //     }
-    //   })
-    //   .then(res => {
-    //     console.log("..disableNonUs");
-    //     console.log(res);
-    //     return res.json();
-    //   })
-    //   .then(json => {
-
-    //     console.log(json);
-    //     // let countryCode = json.countryCode;
-    //     // if (countryCode !== "US") {
-    //     //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
-    //     // }
-    //   })
-    //   .catch((error) => {
-    //     console.log("..error disableNonUs");
-    //     console.log(error);
-    //   });
-    // }
-
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
-
-      // const elements = document.querySelectorAll('.slide-up-far');
-      // elements.forEach(e => {
-      //   e.classList.add("loaded");
-      // });
-    }
-
-    // When submit happens
-    function addFormValidation() {
-
-      let form = document.querySelector('#signUpForm');
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        // if the email field is valid, we let the form submit
-
-        let isFormValid = document.querySelector('#signUpForm').checkValidity();
-
-        // console.log("check validity..");
-        // console.log(isFormValid);
-
-        if(!isFormValid) {
-            // showError();
-            return false;
-        }
-
-        submitEmail();
-        return false; // TODO: why is this false??
-      });
-    }
-
-    let formSucceeded = false;
-
-    function formSuccess() {
-      console.log("formSuccess..");
-      // // hide form
-
-      formSucceeded = true;
-
-      // show success
-      document.querySelector("#form-buttons").classList.add("hidden");
-      document.querySelector("#form-success-text").classList.remove("hidden");
-    }
-
-    function formFailed() {
-      console.log("failed..");
-    }
-
-    async function submitEmail() {
-      // Skip if already success
-      if (formSucceeded) {
-        return;
-      }
-      await Promise.all([submitWaitlistEmailForm(), submitWaitlistEmailCustomer()])
-        .then(success => {
-          formSuccess();
-        })
-        .catch(err => {
-          console.log(err);
-          formFailed();
-        }) // 'sad'
-    }
-
-    async function submitWaitlistEmailCustomer() {
-      return new Promise(async (resolve, reject) => {
-        const email = document.querySelector('#form-email').value;
-        console.log("submitting: " + email);
-
-        let url = `https://api.envelopemoney.com/submit-waitlist-email/${email}`;
-
-        fetch(url, {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'no-cors', // no-cors, *cors, same-origin
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify({
-            "data": {
-              "email": email
-            }
-          })
-        })
-        .then(response => {
-          console.log("..submitted to email list");
-          console.log(response);
-            resolve();
-        })
-        .catch((error) => {
-          console.log("..error submitting to email list");
-            console.log(error);
-            reject();
-        });
-      });
-
-    }
-
-    async function submitWaitlistEmailForm() {
-
-      return new Promise(async (resolve, reject) => {
-
-
-        let email = document.querySelector('#form-email').value;
-
-
-        // console.log("submit to posthog..")
-        // Posthog.identify..
-        posthog.identify(
-            email, //'distinct_id', // Required. Replace 'distinct_id' with your user's unique identifier
-            { email },  // $set, optional
-        );
-
-        // console.log("..submitted to posthog")
-
-        let url = 'https://docs.google.com/forms/d/e/1FAIpQLSd7iIcmjpMEfz6d95CoSGtLxUZjAD0woT9ygu_NgaIg1vkHFg/formResponse?entry.73662474=' + email; // 73662474
-
-        fetch(url, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-          })
-        .then(response => {
-          console.log("..submitted form");
-          resolve();
-        })
-        .catch((error) => {
-          console.log("..error submitting form");
-          console.log(error);
-          reject();
-        });
-
-      });
-    }
-
-    function joinButtonClicked() {
-      document.querySelector("#form-backing").classList.toggle("hidden");
-    }
-
-
-    function callbackFunc(entries, observer) {
-      entries.forEach(entry => {
-        // console.log(entry.isIntersecting);
-        // console.log(entry.target.id);
-
-        if (entry.isIntersecting) {
-          entry.target.classList.add('loaded');
-        } else {
-          // document.getElementById(entry.target.id).classList.add('loaded');
-        }
-        // var txt = entry.target.id + " visibility: " + entry.isIntersecting;
-        
-        // document.getElementById('log').appendChild(document.createTextNode(txt));
-        // document.getElementById('log').appendChild(document.createElement("br"));
-      });
     }
 
     function setupSlideOnView() {
