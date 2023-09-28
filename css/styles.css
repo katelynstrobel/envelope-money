@@ -232,9 +232,12 @@ body.loaded .fadein {
 	padding-bottom: 38px;
 }
 
-
-
-
+#explanation-container {
+    position: initial; 
+	left: 0; 
+    top: -166px;
+	margin-bottom: 0; 
+}
 
 
 
