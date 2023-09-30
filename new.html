@@ -59,8 +59,6 @@
 </head>
 <body>
 
-  <div id="main-container" class="fadein">
-
     <div id="nav-container-blur">
       <div id="nav-container" class="max-width-container">
         <!-- Main Envelope icon -->
@@ -78,6 +76,8 @@
       </div>
     </div>
 
+  <div id="main-container" class="fadein">
+
 
     <div class="max-width-container">
 
@@ -88,20 +88,19 @@
         <span class="expand slide-up-close delay1400">perfected</span>
       </h1>
 
-      <p id="subtitle-body">
-        Stop juggling multiple apps and switch to a platform built for personal budgeting. Flexible and effortless budgeting is finally available with Envelope Money.
+      <p id="subtitle-body" class="slide-up-close-opacity delay2000">
+        Stop juggling multiple apps and switch to a banking platform built for personal budgeting. Flexible and effortless budgeting is finally here.
       </p>
 
 
-
       <div id="badge-container">
-        <a class="expand delay2000" href="https://techcrunch.com/2023/09/07/ycombinator-demo-day-two-summer-2023" target="_blank">
+        <a class="expand delay1200" href="https://techcrunch.com/2023/09/07/ycombinator-demo-day-two-summer-2023" target="_blank">
           <img id="badge-tc" src="images/badge-tc.png"/>
         </a>
-        <a class="expand delay2400" href="https://www.ycombinator.com/launches/JF8-envelope-money-gamified-wealth-building-through-digital-cash-envelopes" target="_blank">
+        <a class="expand delay1600" href="https://www.ycombinator.com/launches/JF8-envelope-money-gamified-wealth-building-through-digital-cash-envelopes" target="_blank">
           <img id="badge-yc" src="images/badge-yc.png"/>
         </a>
-        <a class="expand delay2800" href="#">
+        <a class="expand delay1400" href="#">
           <img id="badge-app-store" src="images/badge-app-store.png"/>
         </a>
       </div>
@@ -207,8 +206,8 @@
 
             </div>
             <div class="footer-links">
-              <a class="footer-link" href="https://www.reddit.com/r/EnvelopeMoney/" target="_blank">Reddit</a>
               <a class="footer-link" href="https://discord.gg/hTAQ72wz3g" target="_blank">Discord</a>
+              <a class="footer-link" href="https://www.reddit.com/r/EnvelopeMoney/" target="_blank">Reddit</a>
               <!-- <a class="footer-link" href="https://www.producthunt.com/posts/envelope-money" target="_blank">Product Hunt</a> -->
               <a class="footer-link" href="https://www.linkedin.com/company/envelope-money" target="_blank">LinkedIn</a>
             </div>
@@ -300,38 +299,59 @@
       addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
+
+      window.addEventListener("scroll", onScrollChange, false);
     })();
 
-    // function disableNonUs() {
+    const topGradient = document.querySelector("#main-container");
+    const botGradients = document.querySelectorAll(".tile");
 
-    //   // let url = `https://api.envelopemoney.com/ip-lookup/`;
-    //   let url = `http://ip-api.com/json/?callback=res`;
+    function onScrollChange () {
+      // console.log(this.scrollY);
 
-    //   fetch(url, {
-    //     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //     mode: 'no-cors', // no-cors, *cors, same-origin
-    //     headers: {
-    //       'content-type': 'application/json'
-    //     }
-    //   })
-    //   .then(res => {
-    //     console.log("..disableNonUs");
-    //     console.log(res);
-    //     return res.json();
-    //   })
-    //   .then(json => {
+      // Top gradient scroll
+      // [1400 -> 2000] : [1 -> 0]
+      // - 1400 [0 -> 600]
+      // / 600 [0 -> 1]
+      // - 1 [-1 -> 0]
+      // * -1 [1 -> 0]
+      let start = 1400;
+      let stop = 2200;
+      let diff = stop - start;
+      let newOpacity = (((this.scrollY - start) / diff) - 1) * -1;
 
-    //     console.log(json);
-    //     // let countryCode = json.countryCode;
-    //     // if (countryCode !== "US") {
-    //     //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
-    //     // }
-    //   })
-    //   .catch((error) => {
-    //     console.log("..error disableNonUs");
-    //     console.log(error);
-    //   });
-    // }
+      topGradient.style.setProperty('--topGradientOnScroll', newOpacity);
+
+
+
+      // Bot gradient scroll
+      // [1800 -> 2600] : [1 -> 0]
+      // - 1800 [0 -> 800]
+      // / 800 [0 -> 1]
+      start = 1600;
+      stop = 2200;
+      diff = stop - start;
+      newOpacity = ((this.scrollY - start) / diff);
+
+
+      botGradients.forEach(g => {
+        g.style.setProperty('--botGradientOnScroll', Math.min(newOpacity, 1) * 0.4);
+      });
+
+      // Bot gradient scroll
+      // [1800 -> 2600] : [1 -> 0]
+      // - 1800 [0 -> 800]
+      // / 800 [0 -> 1]
+      start = 2000;
+      stop = 2600;
+      diff = stop - start;
+      newOpacity = ((this.scrollY - start) / diff);
+
+      botGradients.forEach(g => {
+        g.style.setProperty('--botGradientOnScrollLower', Math.min(newOpacity, 1) * 0.4);
+      });
+      
+    }
 
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
@@ -501,7 +521,7 @@
 
       let observer = new IntersectionObserver(callbackFunc, intersectionObserverOptions);
       
-      const elements = document.querySelectorAll('.slide-up-far, .slide-up-close, .expand');
+      const elements = document.querySelectorAll('.slide-up-far, .slide-up-close, .slide-up-close-opacity, .expand, .appear');
 
       elements.forEach(e => {
         if (screen.width < 1000) {
