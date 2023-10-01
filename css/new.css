@@ -68,12 +68,20 @@ body.loaded .fadein {
 .expand {
 	opacity: 0;
 	scale: 0.5;
-	transition: transform 1.2s, opacity 1.8s;
+/*	transition: transform 1.2s, opacity 1.8s;*/
+
+
+	display: block;
+/*    max-height: 0;*/
+    transition: transform 1.2s, opacity 1.8s, color 1.2s 1.8s;
+/*    overflow: hidden;*/
 }
 
+
 .expand.loaded {
-	transform: scale(2);
-	opacity: 1;
+    transform: scale(2);
+    opacity: 1;
+/*    max-height: 200px;*/
 }
 
 .slide-up-close-opacity {
@@ -108,7 +116,12 @@ body.loaded .fadein {
 .delay2000{ transition-delay: 2000ms; }
 .delay2200{ transition-delay: 2200ms; }
 .delay2400{ transition-delay: 2400ms; }
+.delay2600{ transition-delay: 2600ms; }
 .delay2800{ transition-delay: 2800ms; }
+.delay3000{ transition-delay: 3000ms; }
+.delay3200{ transition-delay: 3200ms; }
+.delay3400{ transition-delay: 3400ms; }
+.delay3600{ transition-delay: 3600ms; }
 
 
 .slide-up-far.loaded {
@@ -276,9 +289,10 @@ body.loaded .fadein {
 	font-style: normal;
 	font-weight: 700;
 	line-height: 192px; /* 92.308% */
-
 	padding-top: 128px;
 }
+
+
 
 #subtitle-body {
 	font-family: var(--font-family);

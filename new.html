@@ -84,11 +84,11 @@
 
       <!-- <img id="e-icon-img" src="images/icon.png"> -->
       <h1 id="main-title">
-        <span class="expand slide-up-close delay600">Banking</span>
-        <span class="expand slide-up-close delay1400">perfected</span>
+        <span class="expand delay800">Banking</span>
+        <span class="expand delay1600">perfected</span>
       </h1>
 
-      <p id="subtitle-body" class="slide-up-close-opacity delay2000">
+      <p id="subtitle-body" class="slide-up-close-opacity">
         Stop juggling multiple apps and switch to a banking platform built for personal budgeting. Flexible and effortless budgeting is finally here.
       </p>
 
@@ -227,7 +227,7 @@
                 </p>
                 
                 <p id="disclosure-text">
-                  © Copyright 2022 Envelope Money, Inc.
+                  © Copyright 2023 Envelope Money, Inc.
                 </p>
 
             </div>
@@ -521,7 +521,9 @@
 
       let observer = new IntersectionObserver(callbackFunc, intersectionObserverOptions);
       
-      const elements = document.querySelectorAll('.slide-up-far, .slide-up-close, .slide-up-close-opacity, .expand, .appear');
+      const elements = document.querySelectorAll(
+        '.slide-up-far, .slide-up-close, .slide-up-close-opacity, .expand, .appear, .delay-padding-top'
+        );
 
       elements.forEach(e => {
         if (screen.width < 1000) {
