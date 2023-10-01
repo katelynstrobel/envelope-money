@@ -999,6 +999,14 @@ body.loaded .fadein {
 	    line-height: 90px;
 	}
 
+	#badge-container {
+	    scale: 0.75;
+	}
+
+	#badge-yc {
+	    margin: 0 56px;
+	}
+
 	.tile {
 		padding: 24px;
 	}
