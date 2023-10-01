@@ -193,7 +193,8 @@ body.loaded .fadein {
 			rgba(34, 132, 255, 0.00) 50%
 		), 
 		var(--Black, #000);
-	background-size: 100% 200%;
+	background-size: 200% 20%;
+	background-repeat: no-repeat;
 	opacity: var(--topGradientOnScroll, 1.0);
 	transition: opacity 1.2s, background 1.2s;
 
@@ -206,7 +207,7 @@ body.loaded .fadein {
 
 @keyframes gradient {
 	0% {
-		background-size: 100% 200%;
+		background-size: 200% 20%;
 	}
 	100% {
 		background-size: 100% 100%;
