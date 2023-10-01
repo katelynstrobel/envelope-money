@@ -199,7 +199,7 @@ body.loaded .fadein {
 	transition: opacity 1.2s, background 1.2s;
 
 
-	animation: gradient 6s ease forwards;
+	animation: gradient 6s 0.6s ease forwards;
 
 	z-index: -1;
 }
