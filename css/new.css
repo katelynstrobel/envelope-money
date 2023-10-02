@@ -67,19 +67,19 @@ body.loaded .fadein {
 
 .expand {
 	opacity: 0;
-	scale: 0.5;
+	scale: 0.75;
 /*	transition: transform 1.2s, opacity 1.8s;*/
 
 
 	display: block;
 /*    max-height: 0;*/
-    transition: transform 1.2s, opacity 1.8s, color 1.2s 1.8s;
+    transition: transform 1.6s, opacity 1.8s, color 1.2s 1.8s;
 /*    overflow: hidden;*/
 }
 
 
 .expand.loaded {
-    transform: scale(2);
+    transform: scale(1.333);
     opacity: 1;
 /*    max-height: 200px;*/
 }
