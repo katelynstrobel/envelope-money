@@ -14,7 +14,7 @@ TEMPORARY
 }
 
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: sans-serif;
   --gray-tile-background: #191919;
   --gray-90: #181A1B;
   --gray-40: #ADB9C0;
