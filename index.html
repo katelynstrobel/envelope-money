@@ -24,8 +24,7 @@
   <title>Envelope Money - Envelope budgeting made simple</title>
   
   <!-- Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-
+  <link href="css/new.css" rel="stylesheet">
   
   <!-- Favicon  -->
   <link rel="icon" href="images/favicon.png">
@@ -56,17 +55,64 @@
   </script>
 
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+  </style>
+
+
 </head>
 <body>
 
-  <div id="main-container" class="fadein" style="background-image: url('images/pattern.png');">
+    <div id="nav-container-blur">
+      <div id="nav-container" class="max-width-container">
+        <!-- Main Envelope icon -->
+        <img id="e-icon-img" src="images/envelope-logo.png">
+
+        <!-- Links -->
+        <div id="nav-container-links">
+          <!-- <a href="#" class="top-nav-link selected"><h4>Features</h4></a>
+          <a href="#" class="top-nav-link"><h4>Social</h4></a>
+          <a href="#" class="top-nav-link"><h4>Company</h4></a> -->
+          <a href="https://discord.gg/hTAQ72wz3g" target="_blank" class="top-nav-link"><h4>Discord</h4></a>
+          <a href="https://www.linkedin.com/company/envelope-money" target="_blank" class="top-nav-link"><h4>LinkedIn</h4></a>
+          <a href="https://trello.com/b/NmGpNWjR" target="_blank" class="top-nav-link"><h4>Roadmap</h4></a>
+          <a href="https://apps.apple.com/us/app/envelope-money/id6444296251" target="_blank" class="top-nav-link"><h4>Download</h4></a>
+          <!-- <a href="#" class="top-nav-link"><h4>Support</h4></a>
+          <a href="#" class="top-nav-link"><h4>Contact</h4></a> -->
+        </div>
+      </div>
+    </div>
 
 
-    <div id="max-width-container">
+  <div id="main-container" class="fadein">
 
-      <img id="e-icon-img" src="images/icon.png">
-      <h1 id="main-title">A banking experience</h1>
-      <h1 id="main-subtitle">with built-in budgeting</h1>
+
+    <div class="max-width-container">
+
+
+      <!-- <img id="e-icon-img" src="images/icon.png"> -->
+      <h1 id="main-title">
+        <span class="expand delay800">Banking</span>
+        <span class="expand delay1600">perfected</span>
+      </h1>
+
+      <p id="subtitle-body" class="slide-up-close-opacity">
+        Stop juggling multiple apps and switch to a banking platform built for personal budgeting. Flexible and effortless budgeting is finally here.
+      </p>
+
+
+      <div id="badge-container">
+        <a class="expand delay800" href="https://techcrunch.com/2023/09/07/ycombinator-demo-day-two-summer-2023" target="_blank">
+          <img id="badge-tc" src="images/badge-tc.png"/>
+        </a>
+        <a class="expand delay1200" href="https://www.ycombinator.com/launches/JF8-envelope-money-gamified-wealth-building-through-digital-cash-envelopes" target="_blank">
+          <img id="badge-yc" src="images/badge-yc.png"/>
+        </a>
+        <a class="expand delay1000" href="https://apps.apple.com/us/app/envelope-money/id6444296251">
+          <img id="badge-app-store" src="images/badge-app-store.png"/>
+        </a>
+      </div>
+
 
       <button class="join-waitlist-btn" onclick="joinButtonClicked()">
         <h4>Join Beta</h4>
@@ -75,56 +121,24 @@
 
       <div id="hand-container">
         <img id="image-mock-main-hand" class="slide-up-far" src="images/mock-main-hand.png">
-
-        <a href="https://techcrunch.com/2023/09/07/ycombinator-demo-day-two-summer-2023" target="_blank">
-          <img id="image-techcrunch-badge" class="slide-up-far" src="images/techcrunch-badge.png">
-        </a>
       </div>
-
-      <div id="mission-container" class="slide-up-far">
-
-        <a href='https://www.ycombinator.com/launches/JF8-envelope-money-gamified-wealth-building-through-digital-cash-envelopes' target="_blank">
-          <img id="yc-logo" src="images/yc-logo.png">
-        </a>
-
-        <h2 id="push-the-envelope">Push the envelope</h2>
-        <p id="mission-text">
-          We believe everyone deserves financial freedom.
-          <br/>
-          Where saving is as easy as spending.
-          <br/>
-          Where automation gives you more control, not less.
-          <br/>
-          Where expenses are paid and goals are met.
-          <br/>
-          <br/>
-          We believe in pushing the envelope on the tools available to everyone to achieve financial freedom.
-        </p>
-
-        <!-- <h2 id="half-life">Coming soon to US markets</h2> -->
-
-        <button class="join-waitlist-btn" onclick="joinButtonClicked()">
-          <h4>Join Beta</h4>
-        </button>
-      </div>
-
 
 
       <div id="tiles-container">
 
-        <div class="tile blue slide-up-close delay100">
-          <img id="image-tile-blue" src="images/notification.png">
+        <div class="tile notifications slide-up-close delay100">
+          <img id="image-tile-notifications" src="images/notification.png">
           <h3 class="tile-title">Useful notifications</h3>
           <p class="tile-description">You can control what types of notifications you get and when.</p>
         </div>
 
-        <div class="tile yellow slide-up-close delay300">
+        <div class="tile budgeting slide-up-close delay300">
           <h3 class="tile-title">Flexible budgeting</h3>
           <p class="tile-description">Need a percentage of your paycheck for one bill and a set amount for another? Easily done with Envelope Money.</p>
-          <img id="image-tile-yellow" src="images/envelope-1.png">
+          <img id="image-tile-budgeting" src="images/envelope-1.png">
         </div>
 
-        <div id="tile-cards" class="tile gray slide-up-close delay500">
+        <div id="tile-cards" class="tile gray slide-up-close delay300">
           <img id="image-tile-cards" src="images/cards-visa-logo.png">
           <h3 class="tile-title">Physical & virtual</h3>
           <p class="tile-description">Instantly have access to your account with a virtual card, perfect for paying online bills or expenses.</p>
@@ -147,9 +161,9 @@
         </div>
 
 
-        <div class="tile purple slide-up-close delay300">
+        <div class="tile secure slide-up-close delay300">
 
-          <img id="image-tile-purple" src="images/lock.png">
+          <img id="image-tile-secure" src="images/lock.png">
           <h3 class="tile-title">Secure from the start</h3>
           <p class="tile-description">
             With Envelope Money, you can request a new virtual card number, lock your account from being used, and request a physical card at anytime. 
@@ -160,10 +174,10 @@
 
           <img id="image-tile-memojis" src="images/memojis.png">
           <h3 class="tile-title">Joint accounts</h3>
-          <p class="tile-description">Share the responsibilty for reaching your goals and paying expenses – custodial accounts are just around the corner.</p>
+          <p class="tile-description">Share the responsibilty for reaching your goals and paying expenses.</p>
         </div>
 
-        <div class="tile green double-width slide-up-close delay300">
+        <div class="tile goals double-width slide-up-close delay300">
           <div class="container-tile-double-width-text">
             <h3 class="tile-title">Goals achieved</h3>
             <p class="tile-description-double-width top">
@@ -195,13 +209,13 @@
           <div class="footer-links-container">
             <div class="footer-links">
               <a class="footer-link" href="https://www.ycombinator.com/companies/envelope-money/jobs" target="_blank">Join our team</a>
+              <a class="footer-link" href="https://status.envelopemoney.com/" target="_blank">Status</a>
               <a class="footer-link" href="disclosures">Disclosures</a>
-              <a class="footer-link" href="disclosures/envelope-money-privacy-policy.pdf" target="_blank">Privacy Policy</a>
 
             </div>
             <div class="footer-links">
-              <a class="footer-link" href="https://status.envelopemoney.com/" target="_blank">Status</a>
               <a class="footer-link" href="https://discord.gg/hTAQ72wz3g" target="_blank">Discord</a>
+              <a class="footer-link" href="https://www.reddit.com/r/EnvelopeMoney/" target="_blank">Reddit</a>
               <!-- <a class="footer-link" href="https://www.producthunt.com/posts/envelope-money" target="_blank">Product Hunt</a> -->
               <a class="footer-link" href="https://www.linkedin.com/company/envelope-money" target="_blank">LinkedIn</a>
             </div>
@@ -215,13 +229,14 @@
             <div id="bank-disclosure" class="vstack left">
 
                 <p id="disclosure-text">
-                  Envelope Money is a financial technology company and not a bank.
+                  Envelope Money is a financial technology company and is not a bank. 
+                  <br/> 
                   <br/>
-                  Banking services and cards are provided by Pacific West Bank, Member FDIC, pursuant to a license by Visa.
+                  Banking services provided by Pacific West Bank, Member FDIC. Your funds are FDIC insured up to $250,000 through Pacific West Bank, Member FDIC. The Envelope Money Visa® Debit Card is issued by Pacific West Bank, N.A. pursuant to a license from Visa U.S.A. Inc. and may be used anywhere Visa cards are accepted.
                 </p>
                 
                 <p id="disclosure-text">
-                  © Copyright 2022 Envelope Money, Inc.
+                  © Copyright 2023 Envelope Money, Inc.
                 </p>
 
             </div>
@@ -293,38 +308,68 @@
       addFormValidation();
       setupSlideOnView();
       setTimeout(runPageLoadedAnimations, 100);
+
+      setTimeout(angleGradients, 2000);
+
+      window.addEventListener("scroll", onScrollChange, false);
     })();
 
-    // function disableNonUs() {
+    const topGradient = document.querySelector("#main-container");
+    const botGradients = document.querySelectorAll(".tile");
 
-    //   // let url = `https://api.envelopemoney.com/ip-lookup/`;
-    //   let url = `http://ip-api.com/json/?callback=res`;
+    function angleGradients() {
 
-    //   fetch(url, {
-    //     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //     mode: 'no-cors', // no-cors, *cors, same-origin
-    //     headers: {
-    //       'content-type': 'application/json'
-    //     }
-    //   })
-    //   .then(res => {
-    //     console.log("..disableNonUs");
-    //     console.log(res);
-    //     return res.json();
-    //   })
-    //   .then(json => {
+      // topGradient.style.setProperty('--topGradientAngleRight', '20deg');
+      // topGradient.style.setProperty('--topGradientAngleLeft', '20deg');
+      
+    }
 
-    //     console.log(json);
-    //     // let countryCode = json.countryCode;
-    //     // if (countryCode !== "US") {
-    //     //   document.getElementsByTagName("html")[0].innerHTML = "<p>Envelope Money is a US only financial tech product and is not available in your geographic region.</p>";
-    //     // }
-    //   })
-    //   .catch((error) => {
-    //     console.log("..error disableNonUs");
-    //     console.log(error);
-    //   });
-    // }
+    function onScrollChange () {
+      // console.log(this.scrollY);
+
+      // Top gradient scroll
+      // [1400 -> 2000] : [1 -> 0]
+      // - 1400 [0 -> 600]
+      // / 600 [0 -> 1]
+      // - 1 [-1 -> 0]
+      // * -1 [1 -> 0]
+      let start = 600; // 1400 on big screen
+      let stop = 1200; // 2200 on big screen
+      let diff = stop - start;
+      let newOpacity = (((this.scrollY - start) / diff) - 1) * -1;
+
+      topGradient.style.setProperty('--topGradientOnScroll', newOpacity);
+
+
+
+      // Bot gradient scroll
+      // [1800 -> 2600] : [1 -> 0]
+      // - 1800 [0 -> 800]
+      // / 800 [0 -> 1]
+      start = 400; // 1600 on big screen
+      stop = 1600; // 2200 on big screen
+      diff = stop - start;
+      newOpacity = ((this.scrollY - start) / diff);
+
+
+      botGradients.forEach(g => {
+        g.style.setProperty('--botGradientOnScroll', Math.min(newOpacity, 1) * 0.4);
+      });
+
+      // Bot gradient scroll
+      // [1800 -> 2600] : [1 -> 0]
+      // - 1800 [0 -> 800]
+      // / 800 [0 -> 1]
+      start = 2000;
+      stop = 2600;
+      diff = stop - start;
+      newOpacity = ((this.scrollY - start) / diff);
+
+      botGradients.forEach(g => {
+        g.style.setProperty('--botGradientOnScrollLower', Math.min(newOpacity, 1) * 0.4);
+      });
+      
+    }
 
     function runPageLoadedAnimations() {
       document.body.className += " loaded";
@@ -494,7 +539,9 @@
 
       let observer = new IntersectionObserver(callbackFunc, intersectionObserverOptions);
       
-      const elements = document.querySelectorAll('.slide-up-far, .slide-up-close');
+      const elements = document.querySelectorAll(
+        '.slide-up-far, .slide-up-close, .slide-up-close-opacity, .expand, .appear, .delay-padding-top'
+        );
 
       elements.forEach(e => {
         if (screen.width < 1000) {
