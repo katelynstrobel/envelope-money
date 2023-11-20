@@ -398,6 +398,12 @@
             return false;
         }
 
+        // Regex test the email
+        const email = document.querySelector('#form-email').value;
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+          return false;
+        }
+
         submitEmail();
         return false; // TODO: why is this false??
       });
